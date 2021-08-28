@@ -8,6 +8,14 @@ from selenium.common.exceptions import NoSuchElementException, WebDriverExceptio
 from selenium.webdriver.chrome.options import Options
 import os
 
+username = 'venoxforo@gmail.com'
+    
+password ='EHr3mPDZL'
+
+number = sys.argv[1]
+
+delay = 2;
+
 CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/usr/local/bin/chromedriver')
 GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
 
