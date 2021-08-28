@@ -22,9 +22,8 @@ GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome'
 
 options = uc.ChromeOptions()
 options.binary_location = GOOGLE_CHROME_BIN
-options.add_argument('--disable-gpu')
-options.add_argument('--no-sandbox')
-#options.headless = True
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-setuid-sandbox")
 
 driver = uc.Chrome(executable_path=CHROMEDRIVER_PATH ,options=options)
 
