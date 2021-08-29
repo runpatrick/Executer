@@ -9,8 +9,6 @@ from selenium.common.exceptions import NoSuchElementException, WebDriverExceptio
 from selenium.webdriver.chrome.options import Options
 import os
 
-display = Display(visible=0, size=(800, 600))
-display.start()
 
 username = 'venoxforo@gmail.com'
     
