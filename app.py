@@ -24,26 +24,20 @@ def index():
     execute();
 
 def execute():
-	host = request.args.get('host')
-	length = request.args.get('length')
-	options = webdriver.ChromeOptions()
-
-  CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/usr/local/bin/chromedriver')
-  GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
-
-
-  options = Options()
-  options.binary_location = GOOGLE_CHROME_BIN
-  options.add_argument('--disable-gpu')
-  options.add_argument('--no-sandbox')
-  options.headless = True
-
-  driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH , options=options)
-	driver.get("https://trinket.io/python3/980ef28a2b")
-	#time.sleep(2)
-	driver.execute_script('document.getElementById("trinket-iframe").contentWindow.document.getElementsByClassName("jqconsole-prompt-text")[0].innerText="'+host+'"')
-	    #time.sleep(2)
-	actions = ActionChains(driver)
-	actions.send_keys(Keys.RETURN)
-	actions.perform()
-	time.sleep(int(length))
+    CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/usr/local/bin/chromedriver')
+    GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
+    options = Options()
+    options.binary_location = GOOGLE_CHROME_BIN
+    options.add_argument('--disable-gpu')
+    options.add_argument('--no-sandbox')
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--headless")
+    options.add_argument(f'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36')
+    driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH , chrome_options=options)
+    driver.get("https://trinket.io/python3/980ef28a2b")
+    driver.execute_script('document.getElementById("trinket-iframe").contentWindow.document.getElementsByClassName("jqconsole-prompt-text")[0].innerText="'+host+'"')
+    actions = ActionChains(driver)
+    actions.send_keys(Keys.RETURN)
+    actions.perform()
+    time.sleep(int(length))
+    driver.quit();
