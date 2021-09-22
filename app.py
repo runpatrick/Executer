@@ -22,6 +22,7 @@ def index():
   else:
     print(length)
     execute();
+  return '{Executer: Online}'
 
 def execute():
     CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/usr/local/bin/chromedriver')
@@ -32,7 +33,6 @@ def execute():
     options.add_argument('--no-sandbox')
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--headless")
-    options.add_argument(f'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36')
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH , chrome_options=options)
     driver.get("https://trinket.io/python3/980ef28a2b")
     driver.execute_script('document.getElementById("trinket-iframe").contentWindow.document.getElementsByClassName("jqconsole-prompt-text")[0].innerText="'+host+'"')
