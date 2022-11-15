@@ -20,7 +20,7 @@ def index():
   else:
     print(quizid);
     execute();
-  return '{Executer: Online}'
+return '{Executer: Online}'
 
 
 def execute():
