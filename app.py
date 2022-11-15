@@ -20,7 +20,7 @@ def index():
   else:
     print(quizid);
     execute();
-return '{Executer: Online}'
+    return '{Executer: Online}'
 
 
 def execute():
@@ -34,10 +34,10 @@ def execute():
     options.add_argument("--headless")
     options.add_argument(f'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36')
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH , chrome_options=options)
-    driver.get("https://quizizz.com/join?gc="+quizid+"&source=liveDashboard")
-    time.sleep(1)
+    driver.get("https://quizizz.com/join?gc=155785&source=liveDashboard")
+    time.sleep(5)
     driver.find_element_by_xpath("//div[@id='root']/div/div/div/div/div/div[2]/div[2]/div/div/form/div/div[2]/div[2]/i").click()
-    time.sleep(1)
+    time.sleep(5)
     driver.quit();
     
 if __name__=='__main__':
