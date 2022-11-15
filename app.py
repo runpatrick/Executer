@@ -39,4 +39,6 @@ def execute():
     driver.find_element_by_xpath("//div[@id='root']/div/div/div/div/div/div[2]/div[2]/div/div/form/div/div[2]/div[2]/i").click()
     time.sleep(1)
     driver.quit();
-
+    
+if __name__=='__main__':
+    app.run(debug=True)
